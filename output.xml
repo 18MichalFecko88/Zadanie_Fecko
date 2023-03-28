@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230328 17:28:16.159" rpa="false" schemaversion="3">
+<suite id="s1" name="Multitude Search" source="/Users/mife/Desktop/Zadanie_Fecko/multitude_search.robot">
+<test id="s1-t1" name="Search Multitude in google" line="13">
+<kw name="Open Google">
+<kw name="New Browser" library="RPA.Browser.Playwright">
+<arg>${BROWSER}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230328 17:28:19.593" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/mife/Desktop/Zadanie_Fecko/browser/traces/eaa38209-5215-4888-a58d-fba5ea2666e2"}</msg>
+<msg timestamp="20230328 17:28:20.904" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/mife/Desktop/Zadanie_Fecko/browser/traces/eaa38209-5215-4888-a58d-fba5ea2666e2"}</msg>
+<status status="PASS" starttime="20230328 17:28:19.591" endtime="20230328 17:28:20.905"/>
+</kw>
+<kw name="New Context" library="RPA.Browser.Playwright">
+<arg>viewport={'width': ${SCREEN_WIDTH}, 'height': ${SCREEN_HEIGHT}}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<msg timestamp="20230328 17:28:20.911" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "hideRfBrowser": false,
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  },
+  "deprecated_pos_args": []
+}</msg>
+<msg timestamp="20230328 17:28:20.956" level="INFO">Successfully created context. </msg>
+<msg timestamp="20230328 17:28:20.956" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'hideRfBrowser': False, 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'viewport': {'height': 1080, 'width': 1920}, 'deprecated_pos_args': []}</msg>
+<status status="PASS" starttime="20230328 17:28:20.907" endtime="20230328 17:28:20.957"/>
+</kw>
+<kw name="New Page" library="RPA.Browser.Playwright">
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230328 17:28:23.397" level="INFO">Successfully initialized new page object and opened url: https://www.google.com/?hl=en-GB</msg>
+<status status="PASS" starttime="20230328 17:28:20.958" endtime="20230328 17:28:23.398"/>
+</kw>
+<status status="PASS" starttime="20230328 17:28:19.589" endtime="20230328 17:28:23.399"/>
+</kw>
+<kw name="Accept All Cookies">
+<kw name="Click" library="RPA.Browser.Playwright">
+<arg>text="Accept all"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230328 17:28:23.403" endtime="20230328 17:28:23.550"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230328 17:28:26.553" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230328 17:28:23.551" endtime="20230328 17:28:26.553"/>
+</kw>
+<status status="PASS" starttime="20230328 17:28:23.401" endtime="20230328 17:28:26.554"/>
+</kw>
+<kw name="Enter Text in Google Search Bar">
+<kw name="Type Text" library="RPA.Browser.Playwright">
+<arg>css=input[title=Search]</arg>
+<arg>multitude.com</arg>
+<arg>clear=True</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230328 17:28:26.558" level="INFO">Types the text 'multitude.com' in the given field.</msg>
+<status status="PASS" starttime="20230328 17:28:26.557" endtime="20230328 17:28:26.846"/>
+</kw>
+<kw name="Press Keys" library="RPA.Browser.Playwright">
+<arg>css=input[title=Search]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" starttime="20230328 17:28:26.847" endtime="20230328 17:28:27.099"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230328 17:28:32.102" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230328 17:28:27.100" endtime="20230328 17:28:32.102"/>
+</kw>
+<status status="PASS" starttime="20230328 17:28:26.556" endtime="20230328 17:28:32.103"/>
+</kw>
+<kw name="Click in Multitude site">
+<kw name="Click" library="RPA.Browser.Playwright">
+<arg>css=a[href*="https://www.multitude.com/careers"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230328 17:28:32.107" endtime="20230328 17:28:32.586"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230328 17:28:37.588" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230328 17:28:32.587" endtime="20230328 17:28:37.588"/>
+</kw>
+<status status="PASS" starttime="20230328 17:28:32.105" endtime="20230328 17:28:37.589"/>
+</kw>
+<status status="PASS" starttime="20230328 17:28:19.576" endtime="20230328 17:28:37.591"/>
+</test>
+<doc>Playwright multitude</doc>
+<status status="PASS" starttime="20230328 17:28:16.175" endtime="20230328 17:28:37.787"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Multitude Search">Multitude Search</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
